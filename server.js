@@ -27,6 +27,12 @@ app.get('/products', (req, res) => {
     res.json(products);
 });
 
+app.get('/products/:id', (req, res) => {
+    const id = Number(req.params.id);
+    const product = products.find(p => p.id === id);
+    res.json(product);
+});
+
 app.post('/products', (req, res) => {
     products.push(req.body)
     res.json(products);
